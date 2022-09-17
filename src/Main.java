@@ -2,9 +2,8 @@ import org.jsoup.*;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import java.io.IOException;
-import java.net.URL;
+
 
 public class Main {
 
@@ -14,18 +13,20 @@ public class Main {
 
 
         Elements pizzas = doc.getElementsByClass("product-item");
-        //System.out.println(pizzas.toString());
+
 
         for (Element pizza : pizzas){
-            
-            String desc = pizza.getElementsByClass("woocommerce-loop-product__title").text();
 
-            System.out.println(desc);
+            String title = pizza.getElementsByClass("woocommerce-loop-product__title").text();
+
+            String price = pizza.getElementsByClass("woocommerce-Price-amount amount").text();
+            String symb = pizza.getElementsByClass("woocommerce-Price-currencySymbol").text();
+
+            System.out.print(title + " " + price);
+            System.out.println(" ");
+
 
         }
 
-
-
     }
 }
-
