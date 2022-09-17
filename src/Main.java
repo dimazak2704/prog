@@ -4,41 +4,28 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-    /*Document doc = Jsoup.connect("https://terramare.vn.ua/menu-dostavki/pizza/").get();
 
-    Elements prices = doc.getElementsByClass("products columns-4");
-
-
-    for(Element price : prices){
-
-        String title = price.getElementsByClass("woocommerce-loopproduct__title").text();
-
-        String desc = price.getElementsByClass("description").text();
+        Document doc = Jsoup.connect("https://terramare.vn.ua/menu-dostavki/pizza/").get();
 
 
-        System.out.println(title);*/
+        Elements pizzas = doc.getElementsByClass("product-item");
+        //System.out.println(pizzas.toString());
 
+        for (Element pizza : pizzas){
+            
+            String desc = pizza.getElementsByClass("woocommerce-loop-product__title").text();
 
-        Document doc = Jsoup.connect("http://en.wikipedia.org/").get();
-        log(doc.title());
+            System.out.println(desc);
 
-        Elements newsHeadlines = doc.select("#mp-itn b a");
-        for (Element headline : newsHeadlines) {
-            log("%s\n\t%s", headline.attr("title"), headline.absUrl("href"));
         }
-    }
 
-    private static void log(String msg, String... vals) {
-        System.out.println(String.format(msg, vals));
-    }
+
 
     }
-
-
-
-
+}
 
