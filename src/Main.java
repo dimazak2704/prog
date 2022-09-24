@@ -21,8 +21,10 @@ public class Main {
 
             String price = pizza.getElementsByClass("woocommerce-Price-amount amount").text();
             String symb = pizza.getElementsByClass("woocommerce-Price-currencySymbol").text();
+            String desc = pizza.getElementsByAttributeValue("itemprop", "description").text();
 
-            System.out.print(title + " " + price);
+
+            System.out.print(title + " " + price + "   |   " + desc);
             System.out.println(" ");
 
 
