@@ -29,6 +29,17 @@ public class Main {
 
 
         }
+        
+        /*Document doc1 = Jsoup.connect("https://express-pizza.vn.ua/catalog/pitstsa/").get();
+        Elements pizzas1 = doc1.getElementsByClass("col-lg-3 col-xl-3 col-sm-6 product-ajax-cont ");
+
+        for (Element pizza1 : pizzas1){
+            String desc = pizza1.getElementsByAttributeValue("itemprop", "name").text();
+            String pizzaaaa = pizza1.getElementsByAttributeValue("itemprop", "price").text();
+            String opus = pizza1.getElementsByAttributeValue("itemprop", "description").text();
+
+            System.out.println(desc + "   " + "\t" + pizzaaaa + " грн" + "\t" + opus);
+        }*/
 
     }
 }
