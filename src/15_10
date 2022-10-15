@@ -1,0 +1,45 @@
+import org.jsoup.*;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import java.io.IOException;
+import java.util.*;
+
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+
+        System.out.println("  \n\n    FIRST SITE - burgers \n ");
+        Document doc = Jsoup.connect("https://express-pizza.vn.ua/catalog/burgery/").get();
+        Elements pizzas = doc.getElementsByClass("col-lg-3 col-xl-3 col-sm-6 product-ajax-cont ");
+        for (Element pizza : pizzas) {
+            String desc = pizza.getElementsByAttributeValue("itemprop", "name").text();
+            String price = pizza.getElementsByAttributeValue("itemprop", "price").text();
+            System.out.println(price + "\t" + desc);
+        }
+
+        System.out.println("    \n\n  SECOND SITE - sushi \n ");
+        Document doc1 = Jsoup.connect("https://express-pizza.vn.ua/catalog/sushi/").get();
+        Elements sushi = doc1.getElementsByClass("col-lg-3 col-xl-3 col-sm-6 product-ajax-cont ");
+        for (Element sushhi : sushi){
+            String desc1 = sushhi.getElementsByAttributeValue("itemprop", "name").text();
+            String price1 = sushhi.getElementsByAttributeValue("itemprop", "price").text();
+            System.out.println(price1 + "\t" + desc1);
+        }
+
+        System.out.println("   \n\n    THIRD SITE - PIZZA \n ");
+        Document doc2 = Jsoup.connect("https://samete.in.ua/pizza").get();
+        Elements pizzas2 = doc2.getElementsByClass("col-sm-6 col-md-4 col-lg-3 isotope-item");
+        for (Element pizza2 : pizzas2){
+            String desc2 = pizza2.getElementsByClass("product-title").text();
+            String price2 = pizza2.getElementsByClass("product-price").text();
+            System.out.println(price2 + "\t" + desc2);
+        }
+
+        
+    }
+}
+
+
